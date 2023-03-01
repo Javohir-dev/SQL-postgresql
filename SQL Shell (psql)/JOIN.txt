@@ -1,0 +1,139 @@
+====================================================================================================== 
+"""
+Column-lardagi ma'lumotlarni alifbo tartibida taxlab chiqardik. Lekin bu juda noqulay chunkiy `first_name` bu yerda ikki marotaba takrorlanayapdi.
+"""
+
+example_db=# select first_name from contacts ORDER BY first_name;
+ first_name
+------------
+ Brod
+ Donkey
+ Iskandar
+ Javohir
+ Javohir
+ Javohir
+ John
+ Jone
+ Kiki
+ Tim
+ Tom
+(11 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+=================================================== AS ======================================================================= 
+"""
+AS buyrug'i orqali biz 'first_name' ni 'fn' ga tenglab qo'ydik. 
+Keyingi safar 'first_name' dev qayta yozmasdan shunchakiy 'fn' deb yozsak kifoya.
+Bu uslub kichik buyruqlar ichida bilinmasligi mumkin lekin katta buyrug'lar bilan ishlaganda juda katta yordam beradi.
+"""
+
+example_db=# SELECT first_name AS fn FROM contacts ORDER BY fn;
+    fn
+----------
+ Brod
+ Donkey
+ Iskandar
+ Javohir
+ Javohir
+ Javohir
+ John
+ Jone
+ Kiki
+ Tim
+ Tom
+(11 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+=================================================== INNER JOIN ====== ON ===================================================== 
+"""
+Bu buyrug' orqali o'zimmizga kerakli ma'lumotni bitta buyrug' bilan amalga oshirish imkoni bor.
+Faqat yozilish tartibiga juda qattiq e'tibor berish zarur.
+"""
+
+example_db=# SELECT contacts.first_name, contacts.last_name, profession.name FROM contacts INNER JOIN profession ON contacts.profession_id = profession.id;
+ first_name |  last_name   |       name
+------------+--------------+-------------------
+ Brod       | King         | cook
+ Iskandar   | Taymatov     | cook
+ Donkey     | Sheepov      | CEO
+ Jone       | Born         | CEO
+ Tim        | Musk         | CEO
+ Javohir    | Khamidullaev | CEO
+ John       | Mackenzzy    | software engineer
+ Tom        | Cook         | software engineer
+ Javohir    | Khamidullaev | software engineer
+ Kiki       | Koko         | doctor
+ Javohir    | Khamidullaev | doctor
+(11 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+============ SELECT ========== FROM ===== AS ======== INNER JOIN === AS ===== ON ============================================= 
+"""
+Bu qisqartmalarni foydasini aynan shu shunga o'xshash query-larda qo'llash juda foyda beradi.
+- o'qishga osson
+- tez va xatosiz yozish imkoniyati
+- osson tushuniladi.
+"""
+
+example_db=# SELECT c.first_name, c.last_name, p.name FROM contacts AS c INNER JOIN profession AS p ON c.profession_id = p.id;
+ first_name |  last_name   |       name
+------------+--------------+-------------------
+ Brod       | King         | cook
+ Iskandar   | Taymatov     | cook
+ Donkey     | Sheepov      | CEO
+ Jone       | Born         | CEO
+ Tim        | Musk         | CEO
+ Javohir    | Khamidullaev | CEO
+ John       | Mackenzzy    | software engineer
+ Tom        | Cook         | software engineer
+ Javohir    | Khamidullaev | software engineer
+ Kiki       | Koko         | doctor
+ Javohir    | Khamidullaev | doctor
+(11 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+============ SELECT ========== FROM ===== AS ======== LEFT OUTER JOIN === AS ===== ON ============================================= 
+"""
+BU buyrug'i profession-da value bo'lsa-bo'lmasa barcha ma'lumotlarni ko'rsataveradi.
+"""
+
+example_db=# SELECT c.first_name, c.last_name, p.name FROM contacts AS c LEFT OUTER JOIN profession As p ON c.profession_id = p.id;
+ first_name |  last_name   |       name
+------------+--------------+-------------------
+ Brod       | King         | cook
+ Iskandar   | Taymatov     | cook
+ Donkey     | Sheepov      | CEO
+ Jone       | Born         | CEO
+ Tim        | Musk         | CEO
+ Javohir    | Khamidullaev | CEO
+ John       | Mackenzzy    | software engineer
+ Tom        | Cook         | software engineer
+ Javohir    | Khamidullaev | software engineer
+ Kiki       | Koko         | doctor
+ Javohir    | Khamidullaev | doctor
+ Dim        | Shook        |
+(12 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+============ SELECT ========== FROM ===== AS ======== RIGHT OUTER JOIN === AS ===== ON ============================================= 
+"""
+BU buyrug'i profession-da value bo'lsa-bo'lmasa barcha ma'lumotlarni ko'rsataveradi.
+"""
+
+example_db=# SELECT c.first_name, c.last_name, p.name FROM profession AS p RIGHT OUTER JOIN contacts AS c ON c.profession_id = p.id;
+ first_name |  last_name   |       name
+------------+--------------+-------------------
+ Brod       | King         | cook
+ Iskandar   | Taymatov     | cook
+ Donkey     | Sheepov      | CEO
+ Jone       | Born         | CEO
+ Tim        | Musk         | CEO
+ Javohir    | Khamidullaev | CEO
+ John       | Mackenzzy    | software engineer
+ Tom        | Cook         | software engineer
+ Javohir    | Khamidullaev | software engineer
+ Kiki       | Koko         | doctor
+ Javohir    | Khamidullaev | doctor
+ Dim        | Shook        |
+(12 rows)
+

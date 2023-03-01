@@ -1,0 +1,140 @@
+=========================== SUM =========================== 
+""" price-ning ichidagi har bir qatorni qo'shib chiqaradi. """
+
+example_db=# SELECT SUM(price) FROM doughnut_list;
+
+  sum
+-------
+ 24.10
+(1 row)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=========================== MIN =========================== 
+""" price-ning ichidagi har bir qatorni tekshirib eng kichigini chiqaradi. """
+
+example_db=# SELECT MIN(price) FROM doughnut_list;
+
+ min
+------
+ 1.00
+(1 row)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=========================== MAX =========================== 
+""" price-ning ichidagi har bir qatorni tekshirib eng kattasini chiqaradi. """
+
+example_db=# SELECT MAX(price) FROM doughnut_list;
+
+ max
+------
+ 8.80
+(1 row)
+
+------------------------------------------------------------------------------------------------------------------------------
+=========================== MAX ... GROUP BY =========================== 
+example_db=# SELECT MAX(price) FROM doughnut_list GROUP BY type;
+
+ max
+------
+ 8.80
+ 6.80
+ 5.50
+ 3.00
+(4 rows)
+
+=========================== type, MAX ... GROUP BY =========================== 
+example_db=# SELECT type, MAX(price) FROM doughnut_list GROUP BY type;
+  type  | max
+--------+------
+ oily   | 8.80
+ filled | 6.80
+ creamy | 5.50
+ sweet  | 3.00
+(4 rows)
+
+=========================== type, MIN ... GROUP BY =========================== 
+example_db=# SELECT type,  MIN(price) FROM doughnut_list GROUP BY type ;
+  type  | min
+--------+------
+ oily   | 5.80
+ filled | 1.00
+ creamy | 5.50
+ sweet  | 3.00
+(4 rows)
+
+=========================== type, AVG ... GROUP BY =========================== 
+example_db=# SELECT type,  AVG(price) FROM doughnut_list GROUP BY type ;
+  type  |        avg
+--------+--------------------
+ oily   | 7.3000000000000000
+ filled | 3.9000000000000000
+ creamy | 5.5000000000000000
+ sweet  | 3.0000000000000000
+(4 rows)
+
+=========================== type, COUNT ... GROUP BY =========================== 
+example_db=# SELECT type,  COUNT(price) FROM doughnut_list GROUP BY type ;
+  type  | count
+--------+-------
+ oily   |     2
+ filled |     2
+ creamy |     1
+ sweet  |     1
+(4 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=========================== AVG =========================== 
+""" Barcha qiymatlarni qo'shib qiymatlar soniga bo'lasi va o'rtacha qiymatni qaytaradi """
+
+example_db=# SELECT AVG(price) FROM doughnut_list;
+
+        avg
+--------------------
+ 4.8200000000000000
+(1 row)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=========================== COUNT =========================== 
+""" column-da nechta row borligini tekshirib qaytaradi. """
+
+example_db=# SELECT COUNT(name) FROM doughnut_list;
+
+ count
+-------
+     5
+(1 row)
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=========================== DISTINCT =========================== 
+""" Ma'lum bir ma'lumotlarni takrorlamagan holda chiqaradi. """
+
+example_db=# SELECT DISTINCT name FROM doughnut_list ;
+ name
+-------
+ Peach
+ Klass
+ Mazza
+ Apple
+ sweet
+(5 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=========================== ORDER BY ... DESC LIMIT number =========================== 
+""" price-ning ichidan eng katta 2 ta row-ni chiqaradi. 
+limitni keraklicha o'zgartirish mumkin.
+"""
+example_db=# SELECT * FROM doughnut_list ORDER BY price DESC LIMIT 2 ;
+ name  |  type  | price
+-------+--------+-------
+ sweet | creamy |  9.00
+ Klass | oily   |  8.80
+(2 rows)
+
+

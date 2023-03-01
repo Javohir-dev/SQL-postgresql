@@ -1,0 +1,36 @@
+example_db=# DELETE FROM my_contacts WHERE first_name = 'John' AND last_name = 'Doe';
+DELETE 1
+
+example_db=# SELECT * FROM my_contacts;
+
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Tom        | Cook         | 1960-03-04 | CEO               | technology
+ Tim        | Musk         | 1960-03-04 | CEO               | technology
+ Iskandar   | Taymatov     | 1994-08-09 | cook              | gardening
+ Jone       | Born         | 1993-01-10 | doctor            | lern new International languages
+ Brod       | King         | 1993-01-10 | software engineer | foodball
+(8 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE first_name = 'Tim';
+
+ first_name | last_name | birthdate  | profession |  interest
+------------+-----------+------------+------------+------------
+ Tim        | Musk      | 1960-03-04 | CEO        | technology
+(1 row)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# DELETE FROM example_table;
+
+DELETE 1
+example_db=# SELECT * FROM example_table;
+
+ price | zip_code | comments | quantity | book_title | gender | meeting_time | is_married
+-------+----------+----------+----------+------------+--------+--------------+------------
+(0 rows)

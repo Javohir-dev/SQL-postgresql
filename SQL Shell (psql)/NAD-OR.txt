@@ -1,0 +1,136 @@
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+psql (15.1)
+WARNING: Console code page (866) differs from Windows code page (1251)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# \c example_db
+example_db=# SELECT (first_name, last_name) FROM my_contacts;
+          row
+------------------------
+ (Javohir,Khamidullaev)
+ (John,Doe)
+ (Brod,King)
+ (Iskandar,Goipov)
+ (Javohir,Khamidullaev)
+ (Javohir,Khamidullaev)
+(6 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT first_name, last_name FROM my_contacts;
+ first_name |  last_name
+------------+--------------
+ Javohir    | Khamidullaev
+ John       | Doe
+ Brod       | King
+ Iskandar   | Goipov
+ Javohir    | Khamidullaev
+ Javohir    | Khamidullaev
+(6 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price <= 3;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Peach | filled |  1.00
+(2 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Peach | filled |  1.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(5 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Iskandar   | Goipov       |            |                   |
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(6 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# INSERT INTO my_contacts VALUES ('Jone', 'Born', '1994-10-10', 'doctor', 'lern new International languages');
+INSERT 0 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts  WHERE profession = 'doctor';
+ first_name | last_name | birthdate  | profession |             interest
+------------+-----------+------------+------------+----------------------------------
+ Jone       | Born      | 1994-10-10 | doctor     | lern new International languages
+(1 row)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE profession = 'software engineer';
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(4 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE profession = 'software engineer' OR  profession = 'doctor';
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Jone       | Born         | 1994-10-10 | doctor            | lern new International languages
+(5 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE interest = 'foodball' OR birthdate > '1992-01-01';
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Jone       | Born         | 1994-10-10 | doctor            | lern new International languages
+(6 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE birthdate < '1995-01-01';
+ first_name | last_name | birthdate  |    profession     |             interest
+------------+-----------+------------+-------------------+----------------------------------
+ John       | Doe       | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King      | 1994-10-10 | software engineer | foodball
+ Jone       | Born      | 1994-10-10 | doctor            | lern new International languages
+(3 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE profession = 'software engineer' AND birthdate < '1995-01-01';
+ first_name | last_name | birthdate  |    profession     | interest
+------------+-----------+------------+-------------------+----------
+ Brod       | King      | 1994-10-10 | software engineer | foodball
+(1 row)

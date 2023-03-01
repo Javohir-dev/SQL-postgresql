@@ -1,0 +1,80 @@
+example_db=# SELECT * FROM my_contacts WHERE first_name LIKE 'T%m';
+
+ first_name | last_name | birthdate  | profession |  interest
+------------+-----------+------------+------------+------------
+ Tom        | Cook      | 1960-03-04 | CEO        | technology
+ Tim        | Musk      | 1960-03-04 | CEO        | technology
+(2 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE first_name NOT LIKE 'T%m';
+
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Iskandar   | Goipov       |            |                   |
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Jone       | Born         | 1994-10-10 | doctor            | lern new International languages
+(7 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE last_name LIKE '%aev';
+
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(3 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price > 5 AND price < 9;
+
+ name  |  type  | price
+-------+--------+-------
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(3 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price BETWEEN 5 AND 9;
+
+ name  |  type  | price
+-------+--------+-------
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(3 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE profession IN ('doctor', 'CEO', 'taxi driver');
+
+ first_name | last_name | birthdate  | profession  |             interest
+------------+-----------+------------+-------------+----------------------------------
+ John       | Doe       | 1994-10-10 | taxi driver | cars, tennis, drawing
+ Jone       | Born      | 1994-10-10 | doctor      | lern new International languages
+ Tom        | Cook      | 1960-03-04 | CEO         | technology
+ Tim        | Musk      | 1960-03-04 | CEO         | technology
+(4 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE profession NOT IN ('doctor', 'CEO', 'taxi driver');
+
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(4 rows)
+

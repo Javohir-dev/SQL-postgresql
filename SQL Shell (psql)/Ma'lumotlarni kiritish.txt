@@ -1,0 +1,69 @@
+example_db=# \d
+             List of relations
+ Schema |     Name      | Type  |  Owner
+--------+---------------+-------+----------
+ public | example_table | table | postgres
+(1 row)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# CREATE TABLE my_comtacts
+example_db-# (
+example_db(#    first_name VARCHAR(50),
+example_db(#    last_name VARCHAR(50),
+example_db(#    birthdate DATE,
+example_db(#    profession VARCHAR(60),
+example_db(#    interest VARCHAR(100)
+example_db(# );
+CREATE TABLE
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# \d
+             List of relations
+ Schema |     Name      | Type  |  Owner
+--------+---------------+-------+----------
+ public | example_table | table | postgres
+ public | my_comtacts   | table | postgres
+(2 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+ADD DATA
+
+example_db=# INSERT INTO my_comtacts (first_name, last_name, birthdate, profession, interest)
+example_db-# VALUES ('Javohir', 'Khamidullaev', '2002-02-22', 'software engineer', 'music, tech, vlogging, draw a picture');
+INSERT 0 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# \d
+             List of relations
+ Schema |     Name      | Type  |  Owner
+--------+---------------+-------+----------
+ public | example_table | table | postgres
+ public | my_contacts   | table | postgres
+(2 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# \d my_contacts;
+                      Table "public.my_contacts"
+   Column   |          Type          | Collation | Nullable | Default
+------------+------------------------+-----------+----------+---------
+ first_name | character varying(50)  |           |          |
+ last_name  | character varying(50)  |           |          |
+ birthdate  | date                   |           |          |
+ profession | character varying(60)  |           |          |
+ interest   | character varying(100) |           |          |
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# INSERT INTO my_contacts (first_name, last_name, birthdate, profession, interest)
+example_db-# VALUES ('John', 'Doe', '1994-10-10', 'taxi driver', 'cars, tennis, drawing');
+INSERT 0 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# INSERT INTO my_contacts
+example_db-# VALUES ('Brod', 'King', '1994-10-10', 'software engineer', 'foodball');
+INSERT 0 1

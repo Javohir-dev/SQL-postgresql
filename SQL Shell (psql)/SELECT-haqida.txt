@@ -1,0 +1,61 @@
+example_db=# SELECT * FROM my_contacts WHERE first_name = 'Javohir';
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(3 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts WHERE profession = 'software engineer';
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(4 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price = 3.00;
+ name  | type  | price
+-------+-------+-------
+ Apple | filed |  3.00
+(1 row)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT first_name, last_name FROM my_contacts;
+ first_name |  last_name
+------------+--------------
+ Javohir    | Khamidullaev
+ John       | Doe
+ Brod       | King
+ Iskandar   | Goipov
+ Javohir    | Khamidullaev
+ Javohir    | Khamidullaev
+(6 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT first_name, last_name FROM my_contacts WHERE interest = 'learn new programming language';
+ first_name |  last_name
+------------+--------------
+ Javohir    | Khamidullaev
+ Javohir    | Khamidullaev
+(2 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Iskandar   | Goipov       |            |                   |
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+(6 rows)

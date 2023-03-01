@@ -1,0 +1,7 @@
+example_db=# CREATE TABLE my_contacts_two
+example_db-# (
+example_db(#    first_name VARCHAR(50) NOT NULL,
+example_db(#    last_name VARCHAR(50) NOT NULL,
+example_db(#    birthdate DATE
+example_db(# );
+CREATE TABLE

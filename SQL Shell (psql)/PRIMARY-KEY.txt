@@ -1,0 +1,48 @@
+PRIMARY KEY
+
+------------------------------------------------------------------------------------------------
+
+example_db=# CREATE TABLE orders_two (
+example_db(#    order_id INT PRIMARY KEY,
+example_db(#    order_name VARCHAR(50)
+example_db(# );
+CREATE TABLE
+
+------------------------------------------------------------------------------------------------
+"""
+Birinchi ma'lumot kiritilishi, 1 bu aynan o'sha row-ga tegishli bo'ladi va boshqa row-lar uchun takrorlash mumkin emas.
+"""
+example_db=# INSERT INTO orders_two VALUES (1, 'first order');
+INSERT 0 1
+
+------------------------------------------------------------------------------------------------
+
+""" oldindan mavjud qiymatlarni yana kiritishga yo'l qo'ymaydi. """
+
+example_db=# INSERT INTO orders_two VALUES (1, 'third order');
+ERROR:  duplicate key value violates unique constraint "orders_two_pkey"
+DETAIL:  Key (order_id)=(1) already exists.
+
+------------------------------------------------------------------------------------------------
+
+""" Endi to'g'ri malumot kiritganimizdan keyingi holat. """
+
+example_db=# INSERT INTO orders_two VALUES (3, 'third order');
+INSERT 0 1
+example_db=# select * from orders_two ;
+ order_id |  order_name
+----------+--------------
+        1 | first order
+        2 | second order
+        3 | third order
+(3 rows)
+
+------------------------------------------------------------------------------------------------
+
+"""
+Har bir ID-ni qo'lda kiritishimiz bu xato, shuning uchun posgresql bizga SERIAL PRIMARY KEY buyrug'i bilan bu ishni oslashtiradi va bu qiymatlar takrorlanmaydi.
+"""
+example_db=# CREATE TABLE order_three (
+example_db(#    order_id SERIAL PRIMARY KEY,
+example_db(#    order_name VARCHAR(50)
+example_db(# );

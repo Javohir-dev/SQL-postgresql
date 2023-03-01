@@ -1,0 +1,30 @@
+example_db=# select * from contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interests               | id | phone_number
+------------+--------------+------------+-------------------+---------------------------------------+----+---------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture |  1 | +998999194422
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language        |  2 | +998999194422
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language        |  3 | +998999194422
+ Tom        | Cook         | 1960-03-04 | CEO               | technology                            |  4 | +998999194422
+ Tim        | Musk         | 1960-03-04 | CEO               | technology                            |  5 | +998999194422
+ Iskandar   | Taymatov     | 1994-08-09 | cook              | gardening                             |  6 | +998999194422
+ Jone       | Born         | 1993-01-10 | doctor            | lern new International languages      |  7 | +998999194422
+ Brod       | King         | 1993-01-10 | software engineer | foodball                              |  8 | +998999194422
+ John       | Mackenzzy    | 1999-01-01 | dctor             | reading                               | 10 | +998885394422
+(9 rows)
+
+example_db=# SELECT * FROM profession;
+ id |       name
+----+-------------------
+  1 | cook
+  2 | CEO
+  3 | software engineer
+  4 | doctor
+(4 rows)
+
+-------------------------------------------------------------------------------------------------------------------------------------
+======================================== REFERENCES =================================================================================
+"""
+Bir table-ni boshqasiga ID orqali bog'lash uchun quyidagi buyrug'dan foydalanishimiz kerak bo'ladi. Shu orqali mavjud bo'lmagan ID-ni kiritishni oldini olgan bo'lamiz.
+ """
+example_db=# ALTER TABLE contacts ADD COLUMN profession_id INT REFERENCES profession (id);
+ALTER TABLE

@@ -1,0 +1,95 @@
+example_db=# INSERT INTO my_contacts VALUES ('Iskandar', 'Taymatov', '1994-08-09', 'cook');
+INSERT 0 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Jone       | Born         | 1994-10-10 | doctor            | lern new International languages
+ Tom        | Cook         | 1960-03-04 | CEO               | technology
+ Tim        | Musk         | 1960-03-04 | CEO               | technology
+ Iskandar   | Taymatov     | 1994-08-09 | cook              |
+(9 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# UPDATE my_contacts SET interest = 'gardening' WHERE first_name = 'Iskandar';
+UPDATE 1
+
+example_db=# SELECT * FROM my_contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Jone       | Born         | 1994-10-10 | doctor            | lern new International languages
+ Tom        | Cook         | 1960-03-04 | CEO               | technology
+ Tim        | Musk         | 1960-03-04 | CEO               | technology
+ Iskandar   | Taymatov     | 1994-08-09 | cook              | gardening
+(9 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# UPDATE my_contacts SET birthdate = '1993-01-10' WHERE profession = 'doctor';
+UPDATE 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Brod       | King         | 1994-10-10 | software engineer | foodball
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Tom        | Cook         | 1960-03-04 | CEO               | technology
+ Tim        | Musk         | 1960-03-04 | CEO               | technology
+ Iskandar   | Taymatov     | 1994-08-09 | cook              | gardening
+ Jone       | Born         | 1993-01-10 | doctor            | lern new International languages
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# UPDATE my_contacts SET birthdate = '1993-01-10' WHERE interest = 'foodball';
+UPDATE 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM my_contacts;
+ first_name |  last_name   | birthdate  |    profession     |               interest
+------------+--------------+------------+-------------------+---------------------------------------
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | music, tech, vlogging, draw a picture
+ John       | Doe          | 1994-10-10 | taxi driver       | cars, tennis, drawing
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Javohir    | Khamidullaev | 2002-02-22 | software engineer | learn new programming language
+ Tom        | Cook         | 1960-03-04 | CEO               | technology
+ Tim        | Musk         | 1960-03-04 | CEO               | technology
+ Iskandar   | Taymatov     | 1994-08-09 | cook              | gardening
+ Jone       | Born         | 1993-01-10 | doctor            | lern new International languages
+ Brod       | King         | 1993-01-10 | software engineer | foodball
+(9 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# UPDATE doughnut_list SET type = 'sweet', price = 3 WHERE name = 'Apple';
+UPDATE 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list;
+ name  |  type  | price
+-------+--------+-------
+ Peach | filled |  1.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+ Apple | sweet  |  3.00
+(5 rows)

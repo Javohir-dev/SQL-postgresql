@@ -1,0 +1,116 @@
+example_db=# \d
+              List of relations
+ Schema |      Name       | Type  |  Owner
+--------+-----------------+-------+----------
+ public | doughnut_list   | table | postgres
+ public | example_table   | table | postgres
+ public | my_contacts     | table | postgres
+ public | my_contacts_two | table | postgres
+(4 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Peach | filled |  1.00
+(2 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price = 3.00;
+ name  | type  | price
+-------+-------+-------
+ Apple | filed |  3.00
+(1 row)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# INSERT INTO doughnut_list VALUES ('Mazza', 'creamy', 5.5);
+INSERT 0 1
+
+example_db=# INSERT INTO doughnut_list VALUES ('Klass', 'oily', 5.8);
+INSERT 0 1
+
+example_db=# INSERT INTO doughnut_list VALUES ('Klass', 'oily', 8.8);
+INSERT 0 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Peach | filled |  1.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(5 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price = 1.00;
+ name  |  type  | price
+-------+--------+-------
+ Peach | filled |  1.00
+(1 row)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price != 1.00;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(4 rows)
+
+--------------------------------------------- OR ----------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price <> 1.00;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(4 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price > 3.00;
+ name  |  type  | price
+-------+--------+-------
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(3 rows)
+
+example_db=# SELECT * FROM doughnut_list WHERE price < 6.00;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Peach | filled |  1.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+(4 rows)
+
+---------------------------------------------------------------------------------------------------------------------
+
+example_db=# SELECT * FROM doughnut_list WHERE price <= 3.00;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Peach | filled |  1.00
+(2 rows)
+
+example_db=# SELECT * FROM doughnut_list WHERE price >= 3;
+ name  |  type  | price
+-------+--------+-------
+ Apple | filed  |  3.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(4 rows)

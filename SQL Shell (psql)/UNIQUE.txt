@@ -1,0 +1,16 @@
+=================================================== ONE TO ONE =================================================== 
+
+example_db=# CREATE TABLE contact_salary (
+example_db(#    id SERIAL PRIMARY KEY,
+example_db(#    amount NUMERIC NOT NULL,
+example_db(#    contacts_id INT REFERENCES contacts (id),
+example_db(#    UNIQUE (contacts_id)
+example_db(# );
+CREATE TABLE
+
+------------------------------------------------------------------------------------------------------------------------------
+
+=================================================== MANY TO MANY =================================================== 
+""" Buning uchun biz yana boshqa TABLE-lar yaratib ularni bir biriga to'g'ri bog'lashimiz kerak bo'ladi. """
+
+------------------------------------------------------------------------------------------------------------------------------

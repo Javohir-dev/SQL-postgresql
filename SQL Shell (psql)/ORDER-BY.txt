@@ -1,0 +1,51 @@
+example_db=# SELECT * FROM doughnut_list;
+
+ name  |  type  | price
+-------+--------+-------
+ Peach | filled |  1.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+ Apple | sweet  |  3.00
+(5 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+""" price ga qarab kichikdan kattaga qarab tartiblaydi. """
+
+example_db=# SELECT * FROM doughnut_list ORDER BY price;
+
+ name  |  type  | price
+-------+--------+-------
+ Peach | filled |  1.00
+ Apple | sweet  |  3.00
+ Mazza | creamy |  5.50
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+(5 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+""" name ga qarab kichikdan kattaga qarab tartiblaydi. """
+
+example_db=# SELECT * FROM doughnut_list ORDER BY name;
+ name  |  type  | price
+-------+--------+-------
+ Apple | sweet  |  3.00
+ Klass | oily   |  5.80
+ Klass | oily   |  8.80
+ Mazza | creamy |  5.50
+ Peach | filled |  1.00
+(5 rows)
+
+------------------------------------------------------------------------------------------------------------------------------
+""" price ga qarab kattadandan kichigiga qarab tartiblaydi. """
+
+example_db=# SELECT * FROM doughnut_list ORDER BY price DESC;
+ name  |  type  | price
+-------+--------+-------
+ Klass | oily   |  8.80
+ Klass | oily   |  5.80
+ Mazza | creamy |  5.50
+ Apple | sweet  |  3.00
+ Peach | filled |  1.00
+(5 rows)
+
